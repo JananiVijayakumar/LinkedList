@@ -3,7 +3,7 @@ package com.bridgelabz;
 /**
  * Author : jananiVijayakumar
  * Date : 01/11/2021
- * Desc : Simple Linked list of 56,30 and 70
+ * Desc : to create a linked list by adding 30, 56 and 70
  */
 
 public class SimpleLinkedList {
@@ -77,9 +77,9 @@ public class SimpleLinkedList {
     public static void main(String[] args) {
         SimpleLinkedList sl = new SimpleLinkedList();
         //Add nodes to the list
-        sl.addNodeAtEnd(56);
-        sl.addNodeAtEnd(30);
-        sl.addNodeAtEnd(40);
+        sl.addNodeAtEnd(70);
+        sl.addNodeAtBeginning(30);
+        sl.addNodeAtBeginning(56);
         sl.display();
     }
 }
