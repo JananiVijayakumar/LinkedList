@@ -75,12 +75,42 @@ public class SimpleLinkedList {
         }
     }
 
+    public void addNodeATMiddle(int data){
+        //Create a new node
+        Node newNode = new Node(data);
+        //Checks if the list is empty
+        if(head == null) {
+            //If list is empty, both head and tail would point to new node
+            head = newNode;
+        }
+        else {
+            newNode = new Node(data);
+            Node temp = head;
+            int size = 0;
+            while (temp != null){
+                size++;
+                temp = temp.next;
+            }
+            //Store the mid position of the list
+            int count = ((size % 2) == 0) ? (size/2) : ((size+1)/2);
+            //Node temp will point to head
+            temp = head;
+            while (count--> 1)
+                temp = temp.next;
+                newNode.next = temp.next;
+            temp.next = newNode;
+            //new node will point to temp
+
+        }
+        size++;
+    }
+
     public static void main(String[] args) {
         SimpleLinkedList sl = new SimpleLinkedList();
         //Add nodes to the list
         sl.addNodeAtEnd(56);
-        sl.addNodeAtEnd(30);
         sl.addNodeAtEnd(70);
+        sl.addNodeATMiddle(30);
         sl.display();
     }
 }
