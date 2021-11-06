@@ -26,7 +26,6 @@ public class SimpleLinkedList {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
-            tail = newNode;
         } else {
             tail.next = newNode;
             tail = newNode;
@@ -44,9 +43,10 @@ public class SimpleLinkedList {
         }
         System.out.println("Simple Linked List :");
         while (temp != null) {
-            System.out.println(temp.data + " ");
+            System.out.println(temp.data + " -> ");
             temp = temp.next;
         }
+        System.out.println("NULL");
     }
 
     //Add nodes at the Beginning of the list
@@ -64,6 +64,7 @@ public class SimpleLinkedList {
     public void addNodeAtEnd(int data) {
         Node node = new Node(data);
         if (head == null) {
+            this.head = new Node(data);
             this.head = node;
         } else {
             Node temp = head;
@@ -77,9 +78,9 @@ public class SimpleLinkedList {
     public static void main(String[] args) {
         SimpleLinkedList sl = new SimpleLinkedList();
         //Add nodes to the list
+        sl.addNodeAtEnd(56);
+        sl.addNodeAtEnd(30);
         sl.addNodeAtEnd(70);
-        sl.addNodeAtBeginning(30);
-        sl.addNodeAtBeginning(56);
         sl.display();
     }
 }
