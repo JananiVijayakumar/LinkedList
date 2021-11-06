@@ -100,9 +100,15 @@ public class SimpleLinkedList {
                 newNode.next = temp.next;
             temp.next = newNode;
             //new node will point to temp
-
         }
         size++;
+    }
+
+    public void deleteNodeAtBeginning(){
+        if (head == null){
+        }else {
+            head = head.next;
+        }
     }
 
     public static void main(String[] args) {
@@ -111,6 +117,7 @@ public class SimpleLinkedList {
         sl.addNodeAtEnd(56);
         sl.addNodeAtEnd(70);
         sl.addNodeATMiddle(30);
+        sl.deleteNodeAtBeginning();
         sl.display();
     }
 }
