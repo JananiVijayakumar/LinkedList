@@ -111,13 +111,25 @@ public class SimpleLinkedList {
         }
     }
 
+    public void deleteNodeAtEnd() {
+        if (head == null) {
+            return;
+        } else {
+            Node temp = head;
+            while (temp.next.next != null) {
+                temp = temp.next;
+            }
+            temp.next = null;
+        }
+    }
+
     public static void main(String[] args) {
         SimpleLinkedList sl = new SimpleLinkedList();
         //Add nodes to the list
         sl.addNodeAtEnd(56);
         sl.addNodeAtEnd(70);
         sl.addNodeATMiddle(30);
-        sl.deleteNodeAtBeginning();
+        sl.deleteNodeAtEnd();
         sl.display();
     }
 }
