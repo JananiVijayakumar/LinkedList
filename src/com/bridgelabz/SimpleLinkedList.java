@@ -123,13 +123,28 @@ public class SimpleLinkedList {
         }
     }
 
+    public boolean search(Node head, int data)
+    {
+        Node current = head;    //Initialize current
+        while (current != null)
+        {
+            if (current.data == data)
+                return true;    //data found
+            current = current.next;
+        }
+        return false;    //data not found
+    }
+
     public static void main(String[] args) {
         SimpleLinkedList sl = new SimpleLinkedList();
         //Add nodes to the list
         sl.addNodeAtEnd(56);
         sl.addNodeAtEnd(70);
         sl.addNodeATMiddle(30);
-        sl.deleteNodeAtEnd();
         sl.display();
+        if (sl.search(sl.head, 30))
+            System.out.println("the data is found");
+        else
+            System.out.println("the data is not found");
     }
 }
