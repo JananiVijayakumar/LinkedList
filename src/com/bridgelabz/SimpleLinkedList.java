@@ -104,25 +104,22 @@ public class SimpleLinkedList {
         size++;
     }
 
-    public void deleteNodeAtBeginning(){
-        if (head == null){
-        }else {
-            head = head.next;
-        }
-    }
-
-    public void deleteNodeAtEnd() {
-        if (head == null) {
+    public void deleteNode(int key){
+        Node node = head;
+        Node temp = null;
+        if (node != null && node.data == key){
+            head = node.next;
             return;
-        } else {
-            Node temp = head;
-            while (temp.next.next != null) {
-                temp = temp.next;
-            }
-            temp.next = null;
         }
+        while(node != null && node.data != key){
+            temp = node;
+            node = node.next;
+        }
+        if (node == null){
+            return;
+        }
+        temp.next = node.next;
     }
-
     public static void main(String[] args) {
         SimpleLinkedList sl = new SimpleLinkedList();
         //Add nodes to the list
@@ -130,6 +127,7 @@ public class SimpleLinkedList {
         sl.addNodeAtBeginning(40);
         sl.addNodeAtBeginning(30);
         sl.addNodeAtBeginning(56);
+        sl.deleteNode(40);
         sl.display();
     }
 }
