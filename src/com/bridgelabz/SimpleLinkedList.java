@@ -7,9 +7,13 @@ package com.bridgelabz;
  */
 
 public class SimpleLinkedList {
+    private static Node head;
+    private static Node tail;
+
     public static class Node {
         private int data;
         private Node next;
+        private Node prev;
         public Node(int data) {
             this.data = data;
             this.next = null;
@@ -17,10 +21,6 @@ public class SimpleLinkedList {
     }
 
     public int size;
-    //initialize head and tail
-    private Node head = null;
-    private Node tail = null;
-
     //Create a new node to add the data in list and Checks if the list is empty
     public void createNode(int data) {
         Node newNode = new Node(data);
@@ -123,28 +123,13 @@ public class SimpleLinkedList {
         }
     }
 
-    public boolean search(Node head, int data)
-    {
-        Node current = head;    //Initialize current
-        while (current != null)
-        {
-            if (current.data == data)
-                return true;    //data found
-            current = current.next;
-        }
-        return false;    //data not found
-    }
-
     public static void main(String[] args) {
         SimpleLinkedList sl = new SimpleLinkedList();
         //Add nodes to the list
-        sl.addNodeAtEnd(56);
-        sl.addNodeAtEnd(70);
-        sl.addNodeATMiddle(30);
+        sl.addNodeAtBeginning(70);
+        sl.addNodeAtBeginning(40);
+        sl.addNodeAtBeginning(30);
+        sl.addNodeAtBeginning(56);
         sl.display();
-        if (sl.search(sl.head, 30))
-            System.out.println("the data is found");
-        else
-            System.out.println("the data is not found");
     }
 }
